@@ -1,0 +1,4 @@
+keras
+tensorflow
+BeautifulSoup4
+lxml
