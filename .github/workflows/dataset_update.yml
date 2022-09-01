@@ -21,8 +21,8 @@ jobs:
     - name: Login to kaggle
       uses: osbm/kaggle-login@v2.3
       with:
-        KAGGLE_USERNAME: {{ secrets.KAGGLE_USERNAME }}
-        KAGGLE_KEY: {{ secrets.KAGGLE_KEY }}
+        KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+        KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
 
     - name: Update dataset
       run: |
