@@ -11,11 +11,12 @@ jobs:
       uses: actions/checkout@v2
       
     - name: Install dependencies
-      uses: |
+      run: |
         pip install -r requirements.txt
 
     - name: Download dataset
-      run: python download_weights.py
+      run: |
+        python download_weights.py
 
     - name: Login to kaggle
       uses: osbm/kaggle-login@v2.3
@@ -24,4 +25,5 @@ jobs:
           KAGGLE_KEY: {{ secrets.KAGGLE_KEY }}
 
     - name: Update dataset
-      run: kaggle datasets version -p ./dataset/
+      run: |
+        kaggle datasets version -p ./dataset/
