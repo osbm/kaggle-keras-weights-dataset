@@ -1,0 +1,27 @@
+on:
+  push:
+  schedule: # once a week at midnight
+    cron: 0 0 * * 0
+    
+jobs:
+  dataset_update:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Install dependencies
+      uses: |
+        pip install -r requirements.txt
+
+    - name: Download dataset
+      run: python download_weights.py
+
+    - name: Login to kaggle
+      uses: osbm/kaggle-login@v2.3
+      with:
+          KAGGLE_USERNAME: {{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_KEY: {{ secrets.KAGGLE_KEY }}
+
+    - name: Update dataset
+      run: kaggle datasets version -p ./dataset/

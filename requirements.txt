@@ -1,4 +1,1 @@
-keras
-tensorflow
-BeautifulSoup4
-lxml
+segmentation_models==1.0.1
