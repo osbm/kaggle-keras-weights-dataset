@@ -26,4 +26,4 @@ jobs:
 
     - name: Update dataset
       run: |
-        kaggle datasets version -p ./dataset/
+        kaggle datasets version -p ./dataset/ -m "Update dataset"
